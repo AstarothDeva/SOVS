@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block style_css %}
+<link
+rel="stylesheet"
+href="{{url_for('static', filename = 'css/otp.css')}}"
+>
+{% endblock %}
+
+{% block content %}
+<form id="otp_form" method="POST" action="{{url_for('login.enter_otp')}}" >
+    <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo.jpg')}}">
+    </div>
+    <h2 align="center"> STUDENT ONLINE VOTING SYSTEM</h2>
+    <h3 align="center">Login</h3>
+    <div class="form-group">
+        <label for="otp">OTP</label>
+        <input type="text"
+               class="form-control"
+               id="otp"
+               name="otp"
+               placeholder="Enter OTP">
+    </div>
+    <br />
+        <button id="otp-button" type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+{% endblock %}

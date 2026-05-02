@@ -1,0 +1,98 @@
+body{
+    background-color: #1D2231;
+}
+
+.logo{
+    width:100%;
+    height:30vh;
+    display: flex;
+    justify-content: center;
+    align-items center;
+    }
+.logo img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+}
+
+h2{
+    border: none;
+    color: #16E1E1;
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+
+}
+
+p{
+    border: none;
+    border-color: #16E1E1;
+    color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.form-group input{
+    width: 350px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#student_id, #email{
+    background-color: #1D2231;
+    border-color: #16E1E1;
+    color:#FFFFFF;
+}
+
+#student_id::placeholder,
+#email::placeholder{
+    color:#FFFFFF;
+    opacity: 0.5;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    -webkit-box-shadow: 0 0 0 30px #1D2231 inset !important;
+    -webkit-text-fill-color: #FFFFFF !important;
+    border-color: #16E1E1 !important;
+    caret-color: #FFFFFF;
+    transition: background-color 9999s ease-in-out 0s;
+}
+
+
+#enter-button{
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#forgot-link{
+    width: 350px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    color:#FFFFFF;
+}
+
+#forgot-link:hover{
+    color: #16E1E1;
+}
+
+label{
+    width: 350px;
+    margin-bottom: 0px;
+    text-align: left;
+    color: #FFFFFF;
+}

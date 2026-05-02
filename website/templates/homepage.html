@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% block title %} Home Page {% endblock %}
+
+{% block style_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/homepage.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="header-box">
+    <img id="logo" src="{{ url_for('static', filename='img/logo.jpg') }}">
+    <h1>Welcome to the Student Online Voting System</h1>
+    <p class="lead">Empowering student democracy through secure, fast, and transparent online voting.</p>
+</div>
+
+<div class="intro-box">
+    <p>
+        The Student Online Voting System (SOVS) is designed to simplify and secure student elections.
+        With just a few clicks, you can cast your vote from anywhere — no paperwork, no waiting.
+    </p>
+    <p>
+        Whether you're electing class officers, student council leaders, or club representatives,
+        SOVS ensures every vote counts and every voice is heard.
+    </p>
+    <p>
+        Please log in or sign up to participate in the next election.
+    </p>
+
+    {% if session.get('user_id') %}
+    <div class="vote-button" style="text-align: center; margin-top: 20px;">
+        <a href="{{ url_for('voting.voting_page') }}" class="btn btn-primary">Vote Now</a>
+    </div>
+    {% endif %}
+</div>
+
+<footer class="site-footer">
+    <div class="footer-left">
+        © 2025 Opol Community College. All rights reserved.
+    </div>
+    <div class="footer-right">
+        <a id="email-footer" href="mailto:sovs.company@gmail.com">sovs.company@gmail.com</a>
+    </div>
+</footer>
+{% endblock %}
+
+

@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block style_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/admin_dashboard.css') }}">
+{% endblock %}
+
+{% block content %}
+<form id="dashboard_form" method="POST">
+    <h2 class="mb-4">Admin Dashboard</h2>
+
+    <div class="dashboard-status">
+        <div class="status-box">
+            <span class="icon">📅</span>
+            <div>
+                <h6>Total Events</h6>
+                <h5>{{ count }}</h5>
+            </div>
+        </div>
+
+        <div class="status-box">
+            <span class="icon">🗳️</span>
+            <div>
+                <h6>Total Votes Cast</h6>
+                <h5>{{ total_votes if total_votes else 0 }}</h5>
+            </div>
+        </div>
+
+        <div class="status-box">
+            <span class="icon">👥</span>
+            <div>
+                <h6>Registered Voters</h6>
+                <h5>{{ num_voters }}</h5>
+            </div>
+        </div>
+
+        <div class="status-box">
+            <span class="icon">🕒</span>
+            <div>
+                <h6>Ongoing Events</h6>
+                <h5>{{ ongoing_count if ongoing_count else 0 }}</h5>
+            </div>
+        </div>
+    </div>
+
+    <hr>
+
+    <h3 class="mb-3">Ongoing Voting Events</h3>
+
+    <div class="mb-4">
+        <select name="event-title" class="form-control" onchange="this.form.submit()">
+            <option disabled {% if not selected_event %}selected{% endif %}>Select an event</option>
+            {% for event in events %}
+                <option value="{{ event.id }}" {% if selected_event and selected_event.id == event.id %}selected{% endif %}>
+                    {{ event.title }}
+                </option>
+            {% endfor %}
+        </select>
+    </div>
+
+    {% if selected_event %}
+    <h4 class="title">{{ selected_event.title }}</h4>
+
+    <div class="container">
+        {% for role_name, candidates in grouped_roles.items() %}
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">{{ role_name }}</h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    {% for candidate in candidates %}
+                    <div class="col-md-4">
+                        <div class="card candidate-card mb-3">
+                            <div class="card-body text-center">
+                                {% if candidate.pfp %}
+                                <img src="{{ url_for('static', filename=candidate.pfp) }}" alt="Candidate Photo" class="candidate-dashboard-photo mb-2">
+                                {% else %}
+                                <div class="candidate-dashboard-photo placeholder mb-2">No Photo</div>
+                                {% endif %}
+                                <h6 class="card-title">{{ candidate.name }}</h6>
+                                <p class="card-text">🗳️ Votes: <strong>{{ candidate.votes }}</strong></p>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+</form>
+{% endblock %}

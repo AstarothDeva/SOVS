@@ -1,0 +1,88 @@
+.centered-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: left;
+    }
+
+    #candidate-form, .info-box {
+        background: #f9f9f9;
+        padding: 20px;
+        border-radius: 10px;
+    }
+
+    .input-group, .candidate-control, label {
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: 10px;
+    }
+
+    .selections {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+.selections form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.photo-upload-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.photo-placeholder {
+    width: 120px;
+    height: 120px;
+    border: 2px dashed #999;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    color: #666;
+    text-align: center;
+    transition: all 0.2s ease-in-out;
+}
+
+.photo-placeholder:hover {
+    background-color: #f0f0f0;
+    border-color: #555;
+}
+
+.photo-placeholder span {
+    font-size: 24px;
+    line-height: 1;
+}
+
+.photo-placeholder small {
+    font-size: 10px;
+    margin-top: 2px;
+}
+
+.candidate-img {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+body{
+    background-color: #1D2231;
+}

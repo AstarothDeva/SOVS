@@ -1,0 +1,89 @@
+{% extends "base.html" %}{% block style_css %}
+<link rel="stylesheet"
+        href="{{url_for('static', filename='css/create_page.css')}}">
+{% endblock %}
+{% block title %}Admin{% endblock %}
+
+{% block content %}
+<form id="create-form" method="post" action="{{url_for('admin.create_event')}}" >
+<h2 class="title-page">Create New Voting Event</h2>
+    <div class="create-group">
+        <label for="event-title">Event Title:</label>
+            <input type="text"
+                   class="create"
+                   id="event-title"
+                   name="event-title"
+                   placeholder="Title"
+                   required
+            >
+    </div>
+
+    <div class="create-group">
+        <label for="start-date">Start Date:</label>
+            <input type="date"
+                   class="create"
+                   id="start-date"
+                   name="start-date"
+                   placeholder="YYYY-MM-DD"
+                   required
+            >
+    </div>
+
+    <div class="create-group">
+        <label for="end-date">End Date:</label>
+            <input type="date"
+                   class="create"
+                   id="end-date"
+                   name="end-date"
+                   placeholder="YYYY-MM-DD"
+                   required
+            >
+    </div>
+    <br/>
+    <button id="create-button" type="submit" class="btn btn-primary">Create</button>
+</form>
+
+<hr style="margin: 40px 0; border-color: #444;">
+
+<!-- Delete Event Section -->
+<form method="post" action="{{ url_for('admin.delete_event') }}">
+    <h2 class="title-page">Delete Voting Event</h2>
+    <div class="create-group">
+        <label for="event-id">Select Event:</label>
+        <select class="create" id="event-id" name="event-id" required>
+            <option value="" disabled {% if not selected_event_id %}selected{% endif %}>Select event</option>
+            {% for event in events %}
+                <option value="{{ event.id }}" {% if selected_event_id == event.id %}selected{% endif %}>{{ event.title }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br/>
+    <button id="delete-button" type="submit" class="btn btn-danger"
+        onclick="return confirm('Are you sure you want to delete this event?');">
+    Delete
+</button>
+</form>
+
+<hr style="margin: 40px 0; border-color: #444;">
+
+<!-- Close Event Section (centered) -->
+<div style="text-align: center;">
+    <form method="post" action="{{ url_for('admin.close_event', event_id=selected_event_id or 0) }}">
+        <h2 class="title-page">Close Voting Event</h2>
+        <div class="create-group">
+            <label for="close-event-id">Select Event:</label>
+            <select class="create" id="close-event-id" name="event-id" required onchange="this.form.action = '/admin/close_event/' + this.value">
+                <option value="" disabled selected>Select event</option>
+                {% for event in events if event.status == 'active' %}
+                    <option value="{{ event.id }}">{{ event.title }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <br/>
+        <button type="submit" class="btn btn-warning"
+            onclick="return confirm('Are you sure you want to close this event and compute winners?');">
+            Close Event
+        </button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,133 @@
+.dashboard-status{
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+    justify-content: flex-start;
+}
+
+
+.status-box{
+    border: 1px solid #3e4b7a;
+    width: 20%;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 50px;
+}
+
+.table{
+    width: 1000px;
+    margin-right: auto;
+
+}
+
+#event-title{
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+/* static/css/admin_dashboard.css */
+
+.dashboard-status {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+}
+
+.status-box {
+    margin: 20px;
+    flex: 1 1 200px;
+    background: #f8f9fa;
+    border-left: 5px solid #007bff;
+    border-radius: 6px;
+    padding: 1rem;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+.mb-3{
+    margin: 10px
+}
+.mb-4{
+    margin: 20px;
+}
+
+.status-box h5,
+.status-box h6 {
+    margin: 0.25rem 0;
+}
+
+.status-box .icon {
+    font-size: 1.8rem;
+    margin-right: 0.5rem;
+    color: #007bff;
+}
+
+.card-header h5 {
+    margin: 0;
+}
+
+form select.form-control {
+    max-width: 300px;
+}
+
+.card .card-body.text-center {
+    padding: 1rem;
+}
+
+/* existing content ... */
+
+.candidate-card {
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    padding: 1rem;
+}
+
+.candidate-dashboard-photo {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #007bff;
+    margin-bottom: 0.5rem;
+}
+
+.candidate-dashboard-photo.placeholder {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ccc;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+h2{
+    border: none;
+    color: #FFFFFF;
+    text-align: center;
+    font-size: 35px;
+    padding: 10px;
+
+}
+
+h3{
+border: none;
+    color: #FFFFFF;
+    font-size: 35px;
+    padding: 10px;
+}
+
+.title{
+border: none;
+    color: #16E1E1;
+    font-size: 30px;
+    padding: 10px;
+}
+
+body{
+    background-color: #1D2231;
+}

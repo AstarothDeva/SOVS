@@ -1,0 +1,171 @@
+body {
+    background: url('../img/bg.jpg') no-repeat center center fixed;
+    background-size: cover;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    margin: 0;
+    position: relative;
+}
+
+/* FULL PAGE OVERLAY */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* black with 60% opacity */
+    z-index: 0;
+}
+
+/* Push everything above the overlay */
+main, .header-box, .intro-box, footer {
+    position: relative;
+    z-index: 1;
+}
+
+
+.header-box {
+    text-align: center;
+    border: 1px solid #3e4b7a;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(62, 75, 122, 0.85); /* semi-transparent */
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+}
+
+h2 {
+    font-size: 40px;
+    color: #16E1E1;
+}
+
+.preview-box {
+    width: 50%;
+    margin: 20px auto 0 auto;
+    text-align: center;
+    color: #FFFFFF;
+    background-color: rgba(29, 34, 49, 0.7); /* translucent bg for readability */
+    padding: 15px;
+    border-radius: 8px;
+}
+
+#title, #date {
+    text-align: left;
+}
+
+#live {
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer {
+    margin-top: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+main {
+    flex: 1;
+}
+
+#start-button {
+    margin: 20px auto;
+    display: block;
+}
+
+p {
+    background-color: transparent;
+    color: #FFFFFF;
+    padding: 3px;
+    margin-top: auto;
+}
+
+.header-box,
+.intro-box {
+    background-color: rgba(0, 0, 0, 0.6); /* translucent black */
+    padding: 20px;
+    margin: 20px auto;
+    width: 80%;
+    border-radius: 10px;
+    color: #FFFFFF;
+}
+
+.intro-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+.header-box h1,
+.intro-box p {
+    text-shadow: 1px 1px 3px #000;
+}
+
+.vote-button {
+    text-align: center;
+    margin-top: 30px;
+}
+
+.vote-button .btn {
+    background-color: #16E1E1;
+    color: #000;
+    padding: 12px 30px;
+    font-size: 16px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+
+.vote-button .btn:hover {
+    background-color: #13c7c7;
+    color: #fff;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-container {
+    flex: 1;
+    padding-bottom: 20px; /* optional: spacing above the footer */
+}
+
+.site-footer {
+    background-color: rgba(0, 0, 0, 0.7);
+    color: #fff;
+    padding: 15px 40px;
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.site-footer .footer-left {
+    text-align: left;
+}
+
+.site-footer .footer-right {
+    text-align: right;
+}
+
+#email-footer{
+    color: #16E1E1;
+}

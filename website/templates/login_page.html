@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Login {% endblock %}
+
+{% block style_css %}
+<link rel="stylesheet"
+      href="{{ url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block content %}
+
+<form id="login_form" method="POST" action="{{url_for('login.login_page')}}" >
+    <div class="logo">
+        <img src="{{ url_for('static', filename='img/logo.jpg')}}">
+    </div>
+    <h2 align="center"> STUDENT ONLINE VOTING SYSTEM</h2>
+    <h3 align="center">Login</h3>
+    <div class="form-group">
+        <label for="student_id">Student ID</label>
+        <input type="text"
+               class="form-control"
+               id="student_id"
+               name="student_id"
+               placeholder="Enter student ID"
+               required>
+    </div>
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password"
+               class="form-control"
+               id="password"
+               name="password"
+               placeholder="Enter your password"
+               required>
+    </div>
+    <br />
+        <button id="login-button" type="submit" class="btn btn-primary">Login</button>
+        <a id="forgot-link" href="{{url_for('login.forgot_password')}}"  class="btn btn-link">Forgot Password?</a>
+
+
+</form>
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% block title %}Vote{% endblock %}
+
+{% block style_css %}
+<link rel="stylesheet"
+        href="{{url_for('static', filename = 'css/voting.css')}}">
+{% endblock %}
+
+{% block content %}
+<div class="vote-layout">
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <ul class="event-list">
+  {% for event in all_event_data %}
+    <li>
+      {% if event.is_active %}
+        <a href="{{ url_for('voting.voting_page', event_id=event.id) }}">{{ event.title }}</a>
+      {% else %}
+        <span class="disabled-event">{{ event.title }} (Closed)</span>
+      {% endif %}
+    </li>
+  {% endfor %}
+</ul>
+
+    </div>
+
+
+    <!-- Main Voting Area -->
+    <div class="main-content">
+    <form method="post" action="{{ url_for('voting.voting_page', event_id=current_event.id) }}">
+      <div class="vote-box">
+        <h3 id="current">Current Event: {{ current_event.title }}</h3>
+
+        {% for role in current_event.roles %}
+        <div class="role-block">
+            <div class="role-header">
+                <h5>{{ role.role }}</h5>
+                <span class="vote-label">Votes</span>
+        </div>
+
+            <div class="stack">
+    {% for candidate in role.selections %}
+                <div class="candidate-card">
+                     {% if candidate.pfp %}
+                                <img src="{{ url_for('static', filename=candidate.pfp) }}" alt="Candidate Photo" class="candidate-dashboard-photo mb-2">
+                                {% else %}
+                                <div class="candidate-dashboard-photo placeholder mb-2">No Photo</div>
+                                {% endif %}
+                    <div class="candidate-info">
+                        <input type="radio" name="vote_{{ role.role | replace(' ', '_') }}" value="{{ candidate.id }}">
+                        <label class="candidate-name">{{ candidate.name }}</label>
+                    </div>
+                    <span class="vote-count">{{ candidate.vote_count }}</span>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>
+    </div>
+</div>
+{% endblock %}
